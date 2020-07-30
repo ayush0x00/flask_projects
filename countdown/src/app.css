@@ -1,0 +1,10 @@
+.app{
+  text-align: center;
+  font-size: 35px;
+  margin-top: 10%;
+}
+
+.hours,.minutes,.days,.seconds{
+  display: inline;
+  margin: auto;
+}
