@@ -8,3 +8,10 @@
   display: inline;
   margin: auto;
 }
+
+#textBox{
+  padding: 5px;margin: 6px;
+  text-align: center;
+  border-color: blue;
+  border-radius: 0.5;
+}

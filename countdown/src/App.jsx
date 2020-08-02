@@ -21,13 +21,13 @@ changeDeadline(){
     return(
       <div className='app'>
         <div className='title'>Countdown to {this.state.deadline}</div>
-          <Clock />
+          <Clock deadline={this.state.deadline} />
         <div>
         <input
-          type="text" placeholder="new Countdown"
+          id="textBox" type="text" placeholder="new Countdown"
           onChange={event=> this.setState({newDeadline:event.target.value})}
           />
-        <button type="submit" onClick={()=>this.changeDeadline()}>Change Countdown</button>
+        <button id="submitButton" type="submit" onClick={()=>this.changeDeadline()}>Change Countdown</button>
         </div>
       </div>
     )

@@ -12,13 +12,15 @@ class Clock extends Component{
     }
   }
 
-  UNSAFE_componentWillMount(){
-    this.getTimeRemaining(this.props.deadline)
+  leading0(num){
+    return num<10? '0'+num : num;
   }
 
   componentDidMount(){
     setInterval(()=>this.getTimeRemaining(this.props.deadline,1000))
     //  this.setState({days,hours,seconds,minutes})
+    console.log("deadline",this.props.deadline);
+    this.getTimeRemaining(this.props.deadline)
   }
 
   getTimeRemaining(deadline){
@@ -28,15 +30,17 @@ class Clock extends Component{
     const hours=Math.floor((time/(1000*60*60))%24)
     const days=Math.floor((time/(1000*60*60*24)))
     this.setState({days,hours,seconds,minutes})
+    console.log(this.state);
   }
+  //console.log(this.state)
 
   render(){
     return(
       <div>
-      <div className='days'>{this.state.days} days</div>
-      <div className='hours'> {this.state.hours} hours</div>
-      <div className='minutes'> {this.state.minutes} minutes</div>
-      <div className='seconds'> {this.state.seconds} seconds</div>
+      <div className='days'>{this.leading0(this.state.days)} days</div>
+      <div className='hours'> {this.leading0(this.state.hours)} hours</div>
+      <div className='minutes'> {this.leading0(this.state.minutes)} minutes</div>
+      <div className='seconds'> {this.leading0(this.state.seconds)} seconds</div>
       </div>
     )
   }
