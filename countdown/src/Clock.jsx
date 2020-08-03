@@ -17,22 +17,25 @@ class Clock extends Component{
   }
 
   componentDidMount(){
-    setInterval(()=>this.getTimeRemaining(this.props.deadline,1000))
-    //  this.setState({days,hours,seconds,minutes})
-    console.log("deadline",this.props.deadline);
     this.getTimeRemaining(this.props.deadline)
   }
 
   getTimeRemaining(deadline){
+    if(!isNaN(Date.parse(deadline))){
     const time= Date.parse(deadline)-Date.parse(new Date())
     const seconds=Math.floor((time/(1000))%60)
     const minutes=Math.floor((time/(1000*60))%60)
     const hours=Math.floor((time/(1000*60*60))%24)
     const days=Math.floor((time/(1000*60*60*24)))
     this.setState({days,hours,seconds,minutes})
-    console.log(this.state);
+    setInterval(()=>this.getTimeRemaining(this.props.deadline,1000))
   }
-  //console.log(this.state)
+  else{
+    this.setState({days:0,hours:0,minutes:0,seconds:0});
+    this.props.revert();
+    //console.log(invalid);
+  }
+}
 
   render(){
     return(

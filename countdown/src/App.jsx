@@ -11,17 +11,18 @@ class App extends Component{
     }
   }
 
-
 changeDeadline(){
-  //never change state directly like this.state.deadline=""
   this.setState({deadline:this.state.newDeadline})
+}
+revertDeadline(){
+  this.setState({deadline:'December 10,2020'})
 }
 
   render(){
     return(
       <div className='app'>
         <div className='title'>Countdown to {this.state.deadline}</div>
-          <Clock deadline={this.state.deadline} />
+          <Clock deadline={this.state.deadline} revert={this.revertDeadline} />
         <div>
         <input
           id="textBox" type="text" placeholder="new Countdown"
