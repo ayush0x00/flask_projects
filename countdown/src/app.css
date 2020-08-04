@@ -1,6 +1,6 @@
 .app{
   text-align: center;
-  font-size: 35px;
+  font-size: 25px;
   margin-top: 10%;
 }
 
@@ -10,8 +10,7 @@
 }
 
 #textBox{
-  padding: 5px;margin: 6px;
+  padding: 1px;margin: 6px;
   text-align: center;
   border-color: blue;
-  border-radius: 0.5;
 }
