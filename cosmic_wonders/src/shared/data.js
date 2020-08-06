@@ -22,5 +22,11 @@ export const wonders=[
     name:"Galaxy",
     image:"images/galaxy.png",
     description:"Just testing..."
+  },
+  {
+    id:4,
+    name: "Planet",
+    image: "images/planet.jpg",
+    description:"Just testing..."
   }
 ];
