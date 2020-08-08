@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {wonders} from './shared/data.js'
-import { CardDeck } from 'reactstrap';
+import { CardDeck,Row,Col} from 'reactstrap';
 import LoneWonder from './Card'
 
 class Celestial extends Component{
@@ -8,26 +8,31 @@ class Celestial extends Component{
     super(props);
     this.state={
       wonders:wonders,
-      clicked:null
+      clicked:-1
     }
   }
 
-  onClick(id){
+onClick(id){
     this.setState({clicked:id})
-  }
+    //console.log(this.state.clicked);
+}
+
+
 
   render(){
-    const displayWonder=this.state.wonders.map(wonder=>{
+      const displayWonder=this.state.wonders.map(wonders=>{
+        return(
+          <LoneWonder key={wonders.id} info={wonders} onClickBtn={(id)=>this.onClick(id)} />
+    )})
       return(
-        <LoneWonder key={wonder.id} info={wonder} onClickBtn={(id)=>this.onClick(id)} />
-      )})
-      return(
-
-        <CardDeck>
-          {displayWonder}
-        </CardDeck>
-
-      )
-    }
-  }
+    <div className="container">
+      <div className="row">
+        {displayWonder}
+      </div>
+      <div>
+      </div>
+    </div>
+  )
+}
+}
 export default Celestial;
