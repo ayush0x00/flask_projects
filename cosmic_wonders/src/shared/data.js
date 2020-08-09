@@ -24,13 +24,13 @@ export const wonders=[
     description:"Just testing..."
   },
   {
-    id:7,
+    id:4,
     name:"Galaxy",
     image:"images/galaxy.png",
     description:"Just testing..."
   },
   {
-    id:4,
+    id:5,
     name:"Galaxy",
     image:"images/galaxy.png",
     description:"Just testing..."
