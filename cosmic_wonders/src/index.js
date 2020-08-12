@@ -1,8 +1,7 @@
-
 import React from 'react'
 import ReactDOM from 'react-dom'
-import Celestial from './Celestial'
+import App from './App'
 
 ReactDOM.render(
- <Celestial />, document.getElementById('root')
+ <App />, document.getElementById('root')
 )
