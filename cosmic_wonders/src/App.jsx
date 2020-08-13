@@ -5,7 +5,8 @@ import Celestial from './Celestial'
 import Header from './Header'
 import Footer from './Footer'
 import Home from './Home'
-import {Switch, Route, Redirect} from 'react-router-dom'
+import {BrowserRouter as Router,Route} from 'react-router-dom'
+import {Switch, Redirect} from 'react-router-dom'
 
 class App extends Component{
  constructor(props){
@@ -16,17 +17,17 @@ class App extends Component{
  }
 render(){
   return(
-    <BrowserRouter>
-    <div className="container">
-      <Header />
-      <Switch>
-        <Route path="/home" component={Home}></Route>
-        <Route exact path="/celestial" component={()=><Celestial wonders={this.state.wonders} />} />
-        <Redirect to="/home"/>
-      </Switch>
-      <Footer/>
-    </div>
-    </BrowserRouter>
+    <Router>
+      <div className="container">
+        <Header />
+        <Switch>
+          <Route path="/home" component={Home}/>
+          <Route exact path="/celestial" component={()=><Celestial wonders={this.state.wonders} />} />
+          <Redirect to="/home"/>
+        </Switch>
+        <Footer/>
+      </div>
+  </Router>
   )
 }
 }

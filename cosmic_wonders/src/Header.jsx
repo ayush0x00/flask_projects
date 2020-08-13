@@ -7,19 +7,19 @@ class Header extends Component{
       <>
         <Navbar color="primary" expand="md">
           <div className="container">
-            <NavbarBrand className="mr-auto" href="/">Cosmic Wonders</NavbarBrand>
+            <NavbarBrand className="mr-auto" to="/">Cosmic Wonders</NavbarBrand>
             <Nav navbar>
               <NavItem>
-                <NavLink className="nav-link" href="/home">Home</NavLink>
+                <NavLink style={{color:"black"}} className="nav-link" to="/home">Home</NavLink>
               </NavItem>
               <NavItem>
-                <NavLink className="nav-link" href="/celestial">Celestial</NavLink>
+                <NavLink className="nav-link" style={{color:"black"}} to="/celestial">Celestial</NavLink>
               </NavItem>
               <NavItem>
-                <NavLink className="nav-link" href="/aboutus">About us</NavLink>
+                <NavLink className="nav-link" style={{color:"black"}} to="/aboutus">About us</NavLink>
               </NavItem>
               <NavItem>
-                <NavLink className="nav-link" href="/contactus">Contact us</NavLink>
+                <NavLink className="nav-link" style={{color:"black"}} to="/contactus">Contact us</NavLink>
               </NavItem>
             </Nav>
           </div>
