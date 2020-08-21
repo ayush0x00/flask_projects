@@ -13,7 +13,7 @@ const LoneWonder=(props)=>{
             <CardTitle>{props.info.name}</CardTitle>
             <CardSubtitle>Card subtitle</CardSubtitle>
             <CardText>{props.info.description}</CardText>
-            <Button color="info">Button</Button>
+            <Button color="info">Details</Button>
         </CardBody>
       </Card>
       </div>

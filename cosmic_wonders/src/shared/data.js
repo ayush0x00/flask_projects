@@ -16,5 +16,5 @@ export const wonders=[
     name:"Nebula",
     image:"images/nebula.jpeg",
     description:"Just testing..."
-  }  
+  }
 ];
