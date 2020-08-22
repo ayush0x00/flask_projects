@@ -1,60 +1,20 @@
-import React, { useState } from 'react';
-import {data} from "./shared/carousel_data.js"
-import {
-  Carousel,
-  CarouselItem,
-  CarouselControl,
-  CarouselIndicators,
-  CarouselCaption
-} from 'reactstrap';
+import React from 'react';
 
-
-const Home = (props) => {
-  const [activeIndex, setActiveIndex] = useState(0);
-  const [animating, setAnimating] = useState(false);
-
-  const next = () => {
-    if (animating) return;
-    const nextIndex = activeIndex === data.length - 1 ? 0 : activeIndex + 1;
-    setActiveIndex(nextIndex);
-  }
-
-  const previous = () => {
-    if (animating) return;
-    const nextIndex = activeIndex === 0 ? data.length - 1 : activeIndex - 1;
-    setActiveIndex(nextIndex);
-  }
-
-  const goToIndex = (newIndex) => {
-    if (animating) return;
-    setActiveIndex(newIndex);
-  }
-
-  const slides = data.map((item) => {
-    return (
-      <CarouselItem
-        onExiting={() => setAnimating(true)}
-        onExited={() => setAnimating(false)}
-        key={item.id}
-      >
-        <img src={item.image} alt={item.name} />
-        <CarouselCaption captionText={item.description} captionHeader={item.name} />
-      </CarouselItem>
-    );
-  });
-
-  return (
-    <Carousel
-      activeIndex={activeIndex}
-      next={next}
-      previous={previous}
-    >
-      <CarouselIndicators data={data} activeIndex={activeIndex} onClickHandler={goToIndex} />
-      {slides}
-      <CarouselControl direction="prev" directionText="Previous" onClickHandler={previous} />
-      <CarouselControl direction="next" directionText="Next" onClickHandler={next} />
-    </Carousel>
-  );
+const Home=(props)=>{
+    const data=props.data.map((item)=>{
+      return(
+        <div className="container">
+          <div className="row">
+            <div className="col">
+              <img src={item.image} style={{width:"220px",height:"220px",padding:"10px"}} alt={item.name} />
+            </div>
+            <div className="col"><h1>{item.name}</h1></div>
+            <div className="col">{item.description}</div>
+          </div>
+        </div>
+      )
+    })
+    return data;
 }
 
 export default Home;

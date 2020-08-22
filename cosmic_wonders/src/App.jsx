@@ -5,6 +5,7 @@ import Celestial from './Celestial'
 import Header from './Header'
 import Footer from './Footer'
 import Home from './Home'
+import {data} from "./shared/carousel_data.js"
 import {BrowserRouter as Router,Route} from 'react-router-dom'
 import {Switch, Redirect} from 'react-router-dom'
 
@@ -12,7 +13,8 @@ class App extends Component{
  constructor(props){
    super(props);
    this.state={
-     wonders:wonders
+     wonders:wonders,
+     data:data
    }
  }
 render(){
@@ -21,7 +23,7 @@ render(){
       <div className="container">
         <Header />
         <Switch>
-          <Route path="/home" component={Home}/>
+          <Route path="/home" component={()=><Home data={this.state.data}/>}/>
           <Route exact path="/celestial" component={()=><Celestial wonders={this.state.wonders} />} />
           <Redirect to="/home"/>
         </Switch>
