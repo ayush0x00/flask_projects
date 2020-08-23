@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
-import {wonders} from './shared/data.js'
-import {Row,Col} from 'reactstrap'
+import {Row,Breadcrumb, BreadcrumbItem} from 'reactstrap'
+import {Link} from 'react-router-dom'
 import LoneWonder from './Card'
 
 class Celestial extends Component{
@@ -31,6 +31,12 @@ beautify(wonders){
     )})
       return(
     <div  className="container">
+      <div className="row">
+        <Breadcrumb>
+          <BreadcrumbItem><Link to="/home">Home</Link></BreadcrumbItem>
+        <BreadcrumbItem active>Celestial</BreadcrumbItem>
+        </Breadcrumb>
+      </div>
       <Row  className="justify-content-center row-md-3">
           {this.beautify(displayWonder)}
       </Row>

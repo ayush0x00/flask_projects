@@ -3,7 +3,7 @@ import React from 'react';
 const Home=(props)=>{
     const data=props.data.map((item)=>{
       return(
-        <div className="container">
+        <div key={item.id} className="container">
           <div className="row">
             <div className="col">
               <img src={item.image} style={{width:"220px",height:"220px",padding:"10px"}} alt={item.name} />

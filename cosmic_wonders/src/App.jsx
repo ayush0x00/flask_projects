@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {wonders} from './shared/data.js';
-import {BrowserRouter} from 'react-router-dom'
 import Celestial from './Celestial'
+import CelestialDetail from './CelestialDetail'
 import Header from './Header'
 import Footer from './Footer'
 import Home from './Home'
@@ -17,7 +17,16 @@ class App extends Component{
      data:data
    }
  }
+
 render(){
+
+  const CelestialwithId=({match})=>{
+    console.log(match);
+    return(
+    <CelestialDetail id={this.state.wonders.filter((item)=> item.id===parseInt(match.params.id,10))[0]} />
+  )
+  }
+
   return(
     <Router>
       <div className="container">
@@ -25,6 +34,7 @@ render(){
         <Switch>
           <Route path="/home" component={()=><Home data={this.state.data}/>}/>
           <Route exact path="/celestial" component={()=><Celestial wonders={this.state.wonders} />} />
+          <Route path="/celestial/:id" component={CelestialwithId} />
           <Redirect to="/home"/>
         </Switch>
         <Footer/>
