@@ -36,7 +36,7 @@ render(){
           <Route path="/home" component={()=><Home data={this.state.data}/>}/>
           <Route exact path="/celestial" component={()=><Celestial wonders={this.state.wonders} />} />
           <Route path="/celestial/:id" component={CelestialwithId} />
-          <Route path="/contactus" component={Feedback} />
+          <Route path="/feedback" component={Feedback} />
           <Redirect to="/home"/>
         </Switch>
         <Footer/>

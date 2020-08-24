@@ -19,7 +19,7 @@ class Header extends Component{
                 <NavLink className="nav-link" style={{color:"black"}} to="/aboutus">About us</NavLink>
               </NavItem>
               <NavItem>
-                <NavLink className="nav-link" style={{color:"black"}} to="/contactus">Contact us</NavLink>
+                <NavLink className="nav-link" style={{color:"black"}} to="/feedback">Feedback</NavLink>
               </NavItem>
             </Nav>
           </div>
