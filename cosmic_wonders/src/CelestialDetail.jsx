@@ -14,7 +14,7 @@ const CelestialDetail=(props)=>{
           <div className="col">
             <img src={props.id.image} style={{width:"220px",height:"220px",padding:"10px"}} alt={props.id.name} />
           </div>
-          <div className="col "> <h3>{props.id.name} </h3> </div>
+          <div className="col"> <h3>{props.id.name} </h3> </div>
           <div className="col"> {props.id.description}  </div>
         </div>
       </div>
