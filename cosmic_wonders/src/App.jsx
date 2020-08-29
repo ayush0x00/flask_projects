@@ -7,6 +7,7 @@ import Header from './Header'
 import Footer from './Footer'
 import {BrowserRouter as Router,Route} from 'react-router-dom'
 import {Switch, Redirect,withRouter} from 'react-router-dom'
+import TellUs from './TellUs'
 import {connect} from 'react-redux';
 
 
@@ -38,6 +39,7 @@ render(){
           <Route exact path="/celestial" component={()=><Celestial wonders={this.props.wonders} />} />
           <Route path="/celestial/:id" component={CelestialwithId} />
           <Route path="/feedback" component={Feedback} />
+          <Route path="/tellus" component={TellUs} />
           <Redirect to="/home"/>
         </Switch>
         <Footer/>
