@@ -1,40 +1,41 @@
 import React, {Component} from 'react';
-import {wonders} from './shared/data.js';
 import Celestial from './Celestial'
 import CelestialDetail from './CelestialDetail'
-import Header from './Header'
-import Footer from './Footer'
 import Home from './Home'
 import Feedback from './Feedback'
-import {data} from "./shared/carousel_data.js"
+import Header from './Header'
+import Footer from './Footer'
 import {BrowserRouter as Router,Route} from 'react-router-dom'
-import {Switch, Redirect} from 'react-router-dom'
+import {Switch, Redirect,withRouter} from 'react-router-dom'
+import {connect} from 'react-redux';
+
+
+
+const mapStateToProps=state=>{
+  return{
+  wonders:state.wonders,
+  data:state.data
+}
+}
 
 class App extends Component{
- constructor(props){
-   super(props);
-   this.state={
-     wonders:wonders,
-     data:data
-   }
- }
-
 render(){
 
   const CelestialwithId=({match})=>{
     console.log(match);
     return(
-    <CelestialDetail id={this.state.wonders.filter((item)=> item.id===parseInt(match.params.id,10))[0]} />
+    <CelestialDetail id={this.props.wonders.filter((item)=> item.id===parseInt(match.params.id,10))[0]} />
   )
   }
 
   return(
+
     <Router>
       <div className="container">
         <Header />
         <Switch>
-          <Route path="/home" component={()=><Home data={this.state.data}/>}/>
-          <Route exact path="/celestial" component={()=><Celestial wonders={this.state.wonders} />} />
+          <Route path="/home" component={()=><Home data={this.props.data}/>}/>
+          <Route exact path="/celestial" component={()=><Celestial wonders={this.props.wonders} />} />
           <Route path="/celestial/:id" component={CelestialwithId} />
           <Route path="/feedback" component={Feedback} />
           <Redirect to="/home"/>
@@ -42,8 +43,9 @@ render(){
         <Footer/>
       </div>
   </Router>
+
   )
 }
 }
 
-export default App;
+export default withRouter(connect(mapStateToProps)(App));
