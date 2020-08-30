@@ -23,7 +23,6 @@ class App extends Component{
 render(){
 
   const CelestialwithId=({match})=>{
-    console.log(match);
     return(
     <CelestialDetail id={this.props.wonders.filter((item)=> item.id===parseInt(match.params.id,10))[0]} />
   )
