@@ -7,11 +7,16 @@ class CelestialDetail extends Component{
     super(props);
     this.handleClick=this.handleClick.bind(this);
   }
-handleClick=()=>{
-  const component=()=>{
-    return(<div>Hello</div>)}
-  return component
-}
+// handleClick=()=>{
+//   const component=()=>{
+//     return(<div>Hello</div>)}
+//   return component
+// }
+handleClick=(e)=>{
+  e.preventDefault();
+  document.getElementById(1).innerHTML="hello";
+};
+
   render(){
     return(
       <div className="container">
@@ -21,9 +26,10 @@ handleClick=()=>{
         <BreadcrumbItem active>{this.props.id.name}</BreadcrumbItem>
       </Breadcrumb>
         <div className="row">
-          <div className="col">
+          <div className="col" id="1">
             <img src={this.props.id.image} style={{width:"220px",height:"220px",padding:"10px"}} alt={this.props.id.name} />
           </div>
+          <div id="1"></div>
           <div className="col"> <h3>{this.props.id.name} </h3>
           <Button className="primary" onClick={this.handleClick}>Add a comment </Button>
           </div>
