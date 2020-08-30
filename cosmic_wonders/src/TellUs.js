@@ -3,6 +3,9 @@ import {Breadcrumb,BreadcrumbItem, Row ,Col, Button,Label} from 'reactstrap';
 import {Link} from 'react-router-dom';
 import {Control,LocalForm,Errors} from 'react-redux-form';
 
+const validEmail=(val)=>/([a-zA-z0-9]+)@([a-zA-z]+)\.([a-zA-Z]{2,5})/.test(val)
+const validNumber=(val)=>!isNaN(Number(val));
+
 class TellUs extends Component{
   constructor(props){
     super(props);
@@ -45,8 +48,12 @@ class TellUs extends Component{
             <Label htmlFor="email" md={2}>Email </Label>
             <Col md={10}>
               <Control.text className="form-control" model=".email" id="email" name="email" placeholder="Email"
+              validators={{validEmail}}
                />
-
+               <Errors className="text-danger" model=".email"
+               show="touched"
+               messages={{validEmail:"Please enter valid email adddress"}}
+               />
               </Col>
           </Row>
           <Row className="form-group">
@@ -54,8 +61,12 @@ class TellUs extends Component{
             <Col md={10}>
               <Control.text model=".tel" id="mobile" name="mobile" placeholder="Mobile Number"
               className="form-control"
+              validators={{validNumber}}
               />
-
+              <Errors className="text-danger" model=".tel"
+              show="touched"
+              messages={{validNumber:"Please enter valid number"}}
+              />
               </Col>
           </Row>
           <Row className="form-group">
