@@ -1,1 +1,1 @@
-export default comment=[];
+export const comment=[];

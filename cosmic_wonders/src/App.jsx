@@ -9,22 +9,28 @@ import {BrowserRouter as Router,Route} from 'react-router-dom'
 import {Switch, Redirect,withRouter} from 'react-router-dom'
 import TellUs from './TellUs'
 import {connect} from 'react-redux';
-
+import {addComment} from './redux/ActionCreator';
 
 
 const mapStateToProps=state=>{
   return{
   wonders:state.wonders,
-  data:state.data
+  data:state.data,
+  comment:state.comment
 }
 }
+
+const mapDispatchToProp=(dispatch)=>({
+  addComment:(celestialId,username,comment)=>dispatch(addComment(celestialId,username,comment))
+})
 
 class App extends Component{
 render(){
 
   const CelestialwithId=({match})=>{
     return(
-    <CelestialDetail id={this.props.wonders.filter((item)=> item.id===parseInt(match.params.id,10))[0]} />
+    <CelestialDetail id={this.props.wonders.filter((item)=> item.id===parseInt(match.params.id,10))[0]}
+    addComment={this.props.addComment} />
   )
   }
 
@@ -49,4 +55,4 @@ render(){
 }
 }
 
-export default withRouter(connect(mapStateToProps)(App));
+export default withRouter(connect(mapStateToProps,mapDispatchToProp)(App));

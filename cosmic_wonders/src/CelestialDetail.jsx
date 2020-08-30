@@ -14,6 +14,7 @@ class CelestialDetail extends Component{
     this.handleLogin=this.handleLogin.bind(this);
   }
 handleClick=()=>{
+  console.log(this.props)
   this.setState({
     isModalOpen:!this.state.isModalOpen
   })
@@ -35,7 +36,7 @@ handleLogin=(values)=>{
             <img src={this.props.id.image} style={{width:"220px",height:"220px",padding:"10px"}} alt={this.props.id.name} />
           </div>
           <div className="col"> <h3>{this.props.id.name} </h3>
-          <Button className="primary" onClick={this.handleClick}>Add a comment </Button>
+          <Button className="primary" onClick={this.handleClick} >Add a comment </Button>
           <Modal isOpen={this.state.isModalOpen} toggle={this.handleClick}>
             <ModalHeader toggle={this.handleClick}>Comment </ModalHeader>
             <ModalBody>
@@ -62,6 +63,7 @@ handleLogin=(values)=>{
 
           </div>
           <div className="col"> {this.props.id.description}  </div>
+          
         </div>
       </div>
     )
